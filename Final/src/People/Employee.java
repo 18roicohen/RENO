@@ -2,21 +2,21 @@ package People;
 
 import Enum.EmpType;
 
-public class Employee extends Person {// PERSON îîçì÷ú äåøùä
+public class Employee extends Person {// PERSON ×ž×ž×—×œ×§×ª ×”×•×¨×©×”
 
-	private EmpType WorkerType;
-	private double Hours;
+	private EmpType workerType;
+	private double hours;
 	private String shift;
 
-	public Employee(String ID, String FName, String LName, EmpType WorkerType, double Hours, String shift) {//áðàé éöéøú
-		super(ID, FName, LName);
-		this.WorkerType = WorkerType;
-		this.Hours = Hours;
+	public Employee(String id, String fName, String lName, EmpType workerType, double hours, String shift) {//×‘× ××™ ×™×¦×™×¨×ª
+		super(id, fName, lName);
+		this.workerType = workerType;
+		this.hours = hours;
 		this.shift = shift;
 	}
 
-	public String talk() {//òåáã ñåâ ìôé àáñèø÷èéú îçì÷ä îéîåù
-		switch(WorkerType){
+	public String talk() {//×¢×•×‘×“ ×¡×•×’ ×œ×¤×™ ××‘×¡×˜×¨×§×˜×™×ª ×ž×—×œ×§×” ×ž×™×ž×•×©
+		switch(workerType){
 		case Manager:
 			return "Hi I am " + getfName() + " " + getlName() + " the manager, how may I assist you?";
 		case Seller:
@@ -27,38 +27,38 @@ public class Employee extends Person {// PERSON îîçì÷ú äåøùä
 		return "Thank you for coming to the cinema";
 	}
 
-	public double getFullSalary() {// òåáã ñåâ ìôé  áøåèå îùëåøú çéåùá
+	public double getFullSalary() {// ×¢×•×‘×“ ×¡×•×’ ×œ×¤×™  ×‘×¨×•×˜×• ×ž×©×›×•×¨×ª ×—×™×•×©×‘
 		double salary = 1;
-		if (WorkerType == EmpType.Manager) {
-			salary = 60 * Hours;
-			if (Hours > 180 && Hours < 200)//ðåñôåú ùòåú ìôé çéùåá
-				salary += (200 - Hours) * 1.25 * 60;
+		if (workerType == EmpType.Manager) {
+			salary = 60 * hours;
+			if (hours > 180 && hours < 200)//× ×•×¡×¤×•×ª ×©×¢×•×ª ×œ×¤×™ ×—×™×©×•×‘
+				salary += (200 - hours) * 1.25 * 60;
 			else {
-				if (Hours > 200)
-					salary += (Hours - 200) * 1.5 * 60;
+				if (hours > 200)
+					salary += (hours - 200) * 1.5 * 60;
 			}
 
-		} else if (WorkerType == EmpType.Seller) {
-			salary = 43 * Hours;
-			if (Hours > 180 && Hours < 200)//ðåñôåú ùòåú ìôé çéùåá
-				salary += (200 - Hours) * 1.25 * 43;
+		} else if (workerType == EmpType.Seller) {
+			salary = 43 * hours;
+			if (hours > 180 && hours < 200)//× ×•×¡×¤×•×ª ×©×¢×•×ª ×œ×¤×™ ×—×™×©×•×‘
+				salary += (200 - hours) * 1.25 * 43;
 			else {
-				if (Hours > 200)
-					salary += (Hours - 200) * 1.5 * 43;
+				if (hours > 200)
+					salary += (hours - 200) * 1.5 * 43;
 			}
-		} else if (WorkerType == EmpType.Usher) {
-			salary = 36 * Hours;
-			if (Hours > 180 && Hours < 200)//ðåñôåú ùòåú ìôé çéùåá
-				salary += (200 - Hours) * 1.25 * 36;
+		} else if (workerType == EmpType.Usher) {
+			salary = 36 * hours;
+			if (hours > 180 && hours < 200)//× ×•×¡×¤×•×ª ×©×¢×•×ª ×œ×¤×™ ×—×™×©×•×‘
+				salary += (200 - hours) * 1.25 * 36;
 			else {
-				if (Hours > 200)
-					salary += (Hours - 200) * 1.5 * 36;
+				if (hours > 200)
+					salary += (hours - 200) * 1.5 * 36;
 			}
 		}
 		return salary;
 	}
 
-	public double getSalaryWithoutTaxes() {//ðèå îùëåøú çéùåá
+	public double getSalaryWithoutTaxes() {//× ×˜×• ×ž×©×›×•×¨×ª ×—×™×©×•×‘
 		double salary = getFullSalary();
 		if (salary > 5300 && salary < 6500)
 			salary = salary * 0.88;
@@ -69,7 +69,7 @@ public class Employee extends Person {// PERSON îîçì÷ú äåøùä
 		return salary;
 	}
 
-	@Override//åáøåèå ðèå îùëåøú äãôñú
+	@Override//×•×‘×¨×•×˜×• × ×˜×• ×ž×©×›×•×¨×ª ×”×“×¤×¡×ª
 	public String toString() {
 		String str = "";
 		str = super.toString() + ",\n\tFull salary:" + getFullSalary() + ",\n\tSalary without taxes :" + getSalaryWithoutTaxes()
