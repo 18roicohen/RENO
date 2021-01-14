@@ -53,15 +53,15 @@ public class IncomeOutcome {
 	/**
 	 * @return profit - income subtracted outcome
 	 */
-	public double getSummery() {
+	public double getSummary() {
 		return this.income - this.outcome;
 	}
 
 	/**
-	 * @return return getSummery
+	 * @return return getSummary
 	 */
 	@Override
 	public String toString() {
-		return "Money left after expenses -> " + this.getSummery();
+		return "Money left after expenses -> " + this.getSummary();
 	}
 }
